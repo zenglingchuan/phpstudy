@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+<link href="https://cdn.bootcss.com/layer/3.0.1/skin/default/layer.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script> 
+<script src="./layui/layui.js"></script>
+<!-- <script src="./public/layui.css"></script> -->
+<link href="./layui/css/layui.css" rel="stylesheet">
+
+
+
+<body>
+<button id="button">点击开始</button>
+
+
+<div id="info" style="display:black">
+			<form class="layui-form">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">输入框</label>
+			    <div class="layui-input-inline">
+			      <input type="text" name="title"  placeholder="请输入标题" class="layui-input">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">密码框</label>
+			    <div class="layui-input-inline">
+			      <input type="text" name="password"  placeholder="请输入密码"  class="layui-input">
+			    </div>
+			    <div class="layui-form-mid layui-word-aux">辅助文字</div>
+			  </div>
+			  
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">复选框</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" name="like[write]" title="写作">
+			      <input type="checkbox" name="like[read]" title="阅读" checked>
+			      <input type="checkbox" name="like[dai]" title="发呆">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">开关</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" name="switch" lay-skin="switch">
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">单选框</label>
+			    <div class="layui-input-block">
+			      <input type="radio" name="sex" value="男" title="男">
+			      <input type="radio" name="sex" value="女" title="女" checked>
+			    </div>
+			  </div>
+			  <div class="layui-form-item layui-form-text">
+			    <label class="layui-form-label">文本域</label>
+			    <div class="layui-input-inline">
+			      <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+			    </div>
+			  </div>
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			    </div>
+			  </div>
+			</form>
+			 
+			<script>
+			//Demo
+			layui.use('form', function(){
+			  var form = layui.form();
+			});
+			</script>
+
+</div>
+	
+</body>
+</html>
+
+<script>
+$(function(){
+	//打开遮罩层
+	$('#button').click(function(){
+       // layer.msg('有表情地提示', {icon: 6},zIndex  : 889,//层叠值); 
+			layer.open({
+
+						  type    :  1, //页面层类型
+						  zIndex  : 888,//层叠值
+						  title   :  '川川', //标题信息,false代表空没有
+						  skin    :  'layui-layer-molv', //内置样式
+						  area    :  ['400px', '500px'],
+						  scrollbar: false,//屏蔽浏览器滚动
+						  anim    :   0, //动画效果
+						  // offset: ['100px', '50px'],//没有这一列默认居中,又可以定位
+						
+						  content: $('#info')  //内容
+						});
+
+
+    });
+    //关闭遮罩层
+    $('#close').click(function(){
+    	// layer.msg('不开心。。', {icon: 5});
+
+    layer.close(layer.index); //它获取的始终是最新弹出的某个层，值是由layer内部动态递增计算的
+    });
+})
+
+
+</script>

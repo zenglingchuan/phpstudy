@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出层</title>
+	<link rel="stylesheet" href="./public/layui.css">
+	<script src="./public/jquery.js"></script>
+	<script src="./public/layui.js"></script>
+</head>
+<body>
+<button id="dianji">button</button>
+<div id="info" style="display:none">
+      <div class="layui-form-item">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-inline">
+      <input type="password" name="password" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+    </div>
+     </div>
+      <div class="layui-form-item">
+    <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;码</label>
+    <div class="layui-input-inline">
+      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+    </div>
+     </div>
+      <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+
+</div>
+	
+</body>
+</html>
+<script>
+$(".dianji").click(function(){
+//加载layer模块，声明layer
+    layui.use('layer', function(){
+      var layer = layui.layer;  
+     //如果在layer单独使用中，直接弹出就可以；
+    // layer.load(6); //风格1的加载
+     //...............................................
+    var index = layer.open({
+      skin: 'layui-layer-molv',
+      area: ['433px','223px'],
+      title:'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎登陆',
+      anim:1,
+      btn:'',
+      tips:[3,'red'],
+      maxmin:true,
+      closeBtn:1,
+      content:$('#info').html()
+    });
+
+    //拿到的index是一个重要的凭据，它是诸如layer.close(index)等方法的必传参数。    
+    //..................................................
+    }); 
+
+});
+</script>
